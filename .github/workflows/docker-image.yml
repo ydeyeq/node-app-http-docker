@@ -25,4 +25,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: node-app-http-docker/githubaction:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/node-app-http-docker:latest
