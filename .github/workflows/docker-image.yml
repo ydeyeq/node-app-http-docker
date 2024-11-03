@@ -20,9 +20,13 @@ jobs:
       with:
        username: ${{ secrets.DOCKERHUB_USERNAME }}
        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - id: docker-metadata
+      uses: docker/metadata-action@v4
+      with:
+       images: ghcr.io/${{ github.repository }}
     - name: Build the Docker image and push to dockerhub
       uses: docker/build-push-action@v5
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/ppaedon:latest
+        tags: ${{ steps.docker-metadata.outputs.tags }}
