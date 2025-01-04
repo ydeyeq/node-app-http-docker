@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: node-app-http-docker
-  namespace: node-app-http-docker
+  namespace: default
   labels:
     app: node-app-http-docker
 spec:
